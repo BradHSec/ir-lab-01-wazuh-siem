@@ -1,0 +1,8 @@
+*.ova
+*.vdi
+*.iso
+*.evtx
+*.pcap
+*.zip
+*.exe
+.env
