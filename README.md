@@ -1,4 +1,4 @@
-\# Project 1: SIEM Detection Lab (Wazuh + Sysmon)
+# Project 1: SIEM Detection Lab (Wazuh + Sysmon)
 
 
 
@@ -28,7 +28,7 @@ then wrote custom detections and tested them with real attack commands.
 
 
 
-\## Setup notes
+## Setup notes
 
 \- Versions used: Wazuh 4.14.x, Windows 11 Enterprise eval, Sysmon
 
@@ -36,7 +36,7 @@ then wrote custom detections and tested them with real attack commands.
 
 
 
-\## Detection exercises
+## Detection exercises
 
 | Technique | What I ran | Events seen | Detected? | Missed / improved |
 
@@ -48,19 +48,19 @@ then wrote custom detections and tested them with real attack commands.
 
 
 
-\## Custom rules
+## Custom rules
 
 (Paste your local\_rules.xml rules here and explain what each catches)
 
 
 
-\## Findings
+## Findings
 
 (Screenshots of alerts and the dashboard)
 
 
 
-\## Lessons learned
+## Lessons learned
 
 What I would improve next.
 
