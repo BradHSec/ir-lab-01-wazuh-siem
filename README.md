@@ -8,7 +8,7 @@ then wrote custom detections and tested them with real attack commands.
 
 
 
-\## Architecture
+## Architecture
 
 (Add a diagram image here: Kali -> Windows 11 victim -> Wazuh SIEM)
 
