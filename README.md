@@ -10,7 +10,7 @@ then wrote custom detections and tested them with real attack commands.
 
 ## Architecture
 
-![Alt text](download/Wazuh SIEM Architecture.drawio)
+![Main Screenshot](NEW Wazuh SIEM Architecture)
 
 
 
