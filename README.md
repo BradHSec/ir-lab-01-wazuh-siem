@@ -10,21 +10,7 @@ then wrote custom detections and tested them with real attack commands.
 
 ## Architecture
 
-(Add a diagram image here: Kali -> Windows 11 victim -> Wazuh SIEM)
-
-
-
-| VM | Role |
-
-|---|---|
-
-| Wazuh OVA | SIEM server |
-
-| Windows 11 | Victim, Sysmon + Wazuh agent |
-
-| Kali | Attacker |
-
-| Ubuntu | Second victim, Wazuh agent |
+![Alt text](download/Wazuh SIEM Architecture.drawio)
 
 
 
