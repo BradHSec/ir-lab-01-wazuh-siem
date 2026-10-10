@@ -1,2 +1,23 @@
-# Command run on WindowsVM Machine
+Command run on WindowsVM Machine
+
+`for /L %i in (1,1,6) do net use \\127.0.0.1\IPC$ /user:baduser Wrong123`
+This command repeated failed logon attempts which is very important in SIEM detection
+
+Possible reasons:
+- Brute Force Attack
+- Credential Stuffing
+- Password Spraying
+- Misconfigured System
+
+To reach the event(s)
+From the Wazuh Dashboard, click on the NODE that you want to monitor
+Click on More, then under Threat Intelligence, select Threat Hunting. 
+In the searchbar, type in the ID (i.e. 4625) which will bring up the failed logons
+
+What we should expect in our SIEM
+4625 events which are failed logon events and 60122 failed logon rule
+
+With this information, we would be able to set a custom on the Wazuh (SIEM) to escalate repeated failed login requests.
+
+
 
