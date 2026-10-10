@@ -1,23 +1,41 @@
-Command run on WindowsVM Machine
+Exercise: Failed Logon Burst
 
-`for /L %i in (1,1,6) do net use \\127.0.0.1\IPC$ /user:baduser Wrong123`
-This command repeated failed logon attempts which is very important in SIEM detection
 
-Possible reasons:
-- Brute Force Attack
-- Credential Stuffing
-- Password Spraying
-- Misconfigured System
+Objective: Generate repeated failed logon attempts on the Windows VM and confirm they are detected in Wazuh.
 
-To reach the event(s)
-From the Wazuh Dashboard, click on the NODE that you want to monitor
-Click on More, then under Threat Intelligence, select Threat Hunting. 
-In the searchbar, type in the ID (i.e. 4625) which will bring up the failed logons
 
-What we should expect in our SIEM
-4625 events which are failed logon events and 60122 failed logon rule
-
-With this information, we would be able to set a custom on the Wazuh (SIEM) to escalate repeated failed login requests.
+Command (run on the Windows VM):
 
 
 
+for /L %i in (1,1,6) do net use \\127.0.0.1\IPC$ /user:baduser Wrong123
+
+
+This loop attempts to authenticate six times with an invalid username and password. Bursts of failed logons like this are a core detection use case for a SIEM.
+
+
+Possible causes of this pattern:
+
+
+Brute-force attack
+Credential stuffing
+Password spraying
+Misconfigured system or service (e.g., a stale saved credential)
+
+
+Locating the events in Wazuh:
+
+
+In the Wazuh Dashboard, select the agent (node) you want to monitor.
+Click More, then under Threat Intelligence, select Threat Hunting.
+In the search bar, enter the Windows event ID 4625 to filter for failed logons.
+
+
+Expected results:
+
+
+Six Windows Event ID 4625 entries (failed logon).
+Wazuh rule 60122 (Windows logon failure) firing for each attempt.
+
+
+Next step: Use these results as the baseline for a custom Wazuh rule that escalates repeated failed logons (for example, multiple 4625 events from the same source within a short time window) into a higher-severity alert.
