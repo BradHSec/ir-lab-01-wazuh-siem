@@ -38,4 +38,4 @@ Six Windows Event ID 4625 entries (failed logon).
 Wazuh rule 60122 (Windows logon failure) firing for each attempt.
 
 
-Next step: Use these results as the baseline for a custom Wazuh rule that escalates repeated failed logons (for example, multiple 4625 events from the same source within a short time window) into a higher-severity alert.
+Next step(s): Use these results as the baseline for a custom Wazuh rule that escalates repeated failed logons (for example, multiple 4625 events from the same source within a short time window) into a higher-severity alert.
