@@ -1,0 +1,34 @@
+Added several columns on Wazuh dashboard for improved visibility. The fields that I added for this exercise are:
+
+***data.win.eventdata.ipAddress
+data.win.eventdata.logonType
+data.win.eventdata.commandLine
+data.win.eventdata.parentImage
+data.win.eventdata.targetUserName***
+
+
+### data.win.eventdata.ipAddress
+is the account that was targeted. On a 4625 it’s the username that failed to log in (baduser in your test). A single name repeated many times means someone is guessing that account’s password. Many different names from one source means username spraying.
+
+### data.win.eventdata.logonType
+is how the logon was attempted. It’s a number:
+
+
+2: interactive (someone at the keyboard)
+3: network (SMB, net use, file shares), which is what your loop produces
+7: unlock
+10: RemoteInteractive (RDP)
+
+
+This matters for triage. Failed type 10 means someone is attacking RDP, and failed type 3 points to SMB or share attacks.
+
+### data.win.eventdata.commandLine
+is the full command that a process was launched with. It only exists on process-creation events (rules 67027 and 92037). For your test it shows net use \\127.0.0.1\IPC$ /user:baduser Wrong123, so you can see the exact credentials and target the attacker tried.
+
+### data.win.eventdata.parentImage
+
+is the program that launched that process. It shows the chain of execution. cmd.exe launching net.exe is expected for your test. winword.exe launching powershell.exe would be a classic malicious macro. Unusual parent-child pairs are one of the best signals in incident response.
+
+###data.win.eventdata.targetUserName
+
+ is the account that was targeted. On a 4625 it’s the username that failed to log in (baduser in your test). A single name repeated many times means someone is guessing that account’s password. Many different names from one source means username spraying.
