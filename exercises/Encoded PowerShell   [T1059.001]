@@ -1,0 +1,11 @@
+Exercise 3: Encoded PowerShell   [T1059.001]
+T1059.001 PowerShell is a MITRE ATT&CK sub-technique under the Execution tactic where adversaries abuse the native Windows PowerShell environment to run commands, scripts, and fileless payloads
+
+
+Run: powershell -NoProfile -EncodedCommand dwBoAG8AYQBtAGkA
+Expect: Sysmon 1 with -EncodedCommand in the command line (the string decodes to whoami) and event 4104 with
+the decoded script.
+Detect Match PowerShell command lines containing -enc or -EncodedCommand. This is the rule shown above.
+
+Please screenshot:
+
