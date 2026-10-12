@@ -1,1 +1,5 @@
+Run net user labtest P@ssw0rd123! /add && net localgroup administrators labtest /add
+Expect Security 4720 (account created), 4732 (added to group), and Sysmon 1 for net.exe.
+Detect Alert on a 4720 followed by a 4732 for the same account.
+Cleanup net user labtest /delete
 
