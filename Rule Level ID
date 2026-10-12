@@ -1,1 +1,27 @@
-![Wazuh Local Admin Alert](Wazuh Local Admin Alert)
+Please see screenshot Wazuh Local Admin alert
+
+Rule level ID is 15. Created rule that anything above level 10 would be escalated. The custom rule that was applied:
+
+<group name="custom_escalation,">
+
+  <rule id="100500" level="15">
+    <if_level>11</if_level>
+    <description>Escalation: Alert level above 10 detected</description>
+    <group>escalation,high_priority,</group>
+  </rule>
+
+</group>
+
+
+In addition, these could be emailed. This rule would need to be placed in global rules on the manager
+
+<global>
+  <email_notification>yes</email_notification>
+  <email_to>soc@example.com</email_to>
+  <email_from>wazuh@example.com</email_from>
+  <smtp_server>mail.example.com</smtp_server>
+</global>
+
+<alerts>
+  <email_alert_level>15</email_alert_level>
+</alerts>
