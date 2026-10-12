@@ -1,0 +1,11 @@
+Alerts with a level greater than 10 and then trigger escalation actions such as email, Active Response, or forwarding to a SIEM/ticketing system
+
+<group name="custom_escalation,">
+
+  <rule id="100500" level="15">
+    <if_level>11</if_level>
+    <description>Escalation: Alert level above 10 detected</description>
+    <group>escalation,high_priority,</group>
+  </rule>
+
+</group>
